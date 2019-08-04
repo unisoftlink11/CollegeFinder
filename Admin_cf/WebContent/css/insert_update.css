@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+.insert_update form
+{
+	margin: 50px 20rem;
+}
+.insert_update h1
+{
+	text-align: center;
+}
+.insert_update span
+{
+	color: red;
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Contact</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="College Finder project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/contact.css">
+<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+			
+		<!-- Top Bar -->
+		<div class="top_bar">
+			<div class="top_bar_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+								<ul class="top_bar_contact_list">
+									<li><div class="question">Have any questions?</div></li>
+									<li>
+										<i class="fa fa-phone" aria-hidden="true"></i>
+										<div>01-4475891/01-4487864</div>
+									</li>
+									<li>
+										<i class="fa fa-envelope-o" aria-hidden="true"></i>
+										<div>CollegeFinder@gmail.com</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</div>
+
+		<!-- Header Content -->
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="logo_container">
+								<a href="#">
+									<img class="img-responsive logo" src="images/college finder.png">
+								</a>
+							</div>
+							<nav class="main_nav_contaner ml-auto">
+								<ul class="main_nav">
+									<li><a href="home.html">Home</a></li>
+									<li><a href="about.html">About</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="scholarship.html" style="margin-left: 0px;">Scholarship</a></li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>			
+</header>
+
+	<!-- Home -->
+
+	<div class="home">		
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		
+		<!-- Contact Map -->
+
+		<div class="contact_map">
+
+		<!-- Contact Info -->
+
+		<div class="contact_info_container">
+			<div class="container">
+				<div class="row">
+
+					<!-- Contact Form -->
+					<div class="col-lg-6">
+						<div class="contact_form">
+							<div class="contact_info_title">Contact Form</div>
+							<form action="UserHandler" class="comment_form" method="POST">
+							<input type="hidden" name="command" value="contact">
+								<div>
+									<div class="form_title">Name</div>
+									<input type="text" class="comment_input" required="required" name="name">
+								</div>
+								<div>
+									<div class="form_title">Email</div>
+									<input type="text" class="comment_input" required="required" name="email">
+								</div>
+								<div>
+									<div class="form_title">Message</div>
+									<textarea class="comment_input comment_textarea" required="required" name="message" placeholder="Write upto 200 words"></textarea>
+								</div>
+								<div>
+									<input type="submit" class="comment_button trans_200" value="Submit">
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="col-lg-6">
+						<div class="contact_info">
+							<div class="contact_info_title">Contact Info</div>
+							<div class="contact_info_text">
+								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a distribution of letters.</p>
+							</div>
+							<div class="contact_info_location">
+								<div class="contact_info_location_title">Chabahil Office</div>
+								<ul class="location_list">
+									<li>Chabahil, Kathmandu</li>
+									<li>01-4475891/01-4487864</li>
+									<li>collegefinder@gmail.com</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- Footer -->
+
+	<!-- footer -->
+	
+	<div class="footer">
+	<div class="container">
+		<div class="footer_logo">
+			<div class="row">
+			 <div class="col-md-4">
+				<div class="footer_logo_container">
+					<a href="#">
+						<div class="footer_logo_text">College<span>Finder</span></div>
+					</a>
+				</div>	
+				<div class="logo_about">
+				“COLLEGE FINDER” is a web application which will provide the information like course, college information, available seats, etc. of many colleges at one place. With the help of this application any one can get information of many colleges in very short time and also save the expenses of visiting colleges.
+				</div>
+		     </div>
+		<div class="col-md-4">
+			<div class = "footer_contact">
+					<h4>Contact Info</h4>
+					Phone :01-4475891/01-4487864<br>
+					E-mail:CollegeFinder@gmail.com
+
+			</div> 
+		</div>
+		
+		<div class="col-md-4">
+			<div class="footer_quick">
+			   <h3>Quick Link</h3>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="">Scholarship</a></li>
+			 </div>
+		  </div>
+	   </div>
+   </div>
+</div>
+
+			<div class="row copyright_row">
+				<div class="col">
+					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
+						<div class="cr_text">
+                           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | CollegeFinder
+                        </div>
+						<div class="ml-lg-auto cr_links">
+							<ul class="cr_list">
+								<li><a href="#">Copyright notification</a></li>
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+</div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="js/contact.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+</body>
+</html>
