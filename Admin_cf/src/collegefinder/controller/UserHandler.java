@@ -1,11 +1,11 @@
 package collegefinder.controller;
-import java.sql.ResultSet;
-import java.util.Vector;
-import java.sql.PreparedStatement;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-
+import java.sql.ResultSet;
+import java.util.Vector;
+import java.sql.PreparedStatement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -288,7 +288,7 @@ public class UserHandler extends HttpServlet {
         	    String resultknapsack = dao.resultKnapSack(resultknap);
         	    request.setAttribute("name", resultknapsack);
         	    System.out.println(resultknapsack);
-        	    redirect="/knapsack.jsp";
+        	    redirect="/home.jsp";
         	    
         	 
          }

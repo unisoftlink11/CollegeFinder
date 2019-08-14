@@ -145,6 +145,11 @@ h6::selection
 	color: #db5246;
 }
 
+.super_container
+{
+	width: 100%;
+	overflow: hidden;
+}
 /*********************************
 3. Header
 *********************************/
@@ -660,7 +665,7 @@ h6::selection
 }
 .footer_quick li a
 {
-	color: grey;
+	color: #a5a5a5;
 }
 .footer_quick li a:hover{
 	text-decoration: underline;

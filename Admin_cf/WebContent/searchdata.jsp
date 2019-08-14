@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
- <%@ page import="collegefinder.dao.DAO" %>
- <%@ page import= "java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="collegefinder.dao.DAO" %>
+<%@ page import= "java.util.*" %>
 <%@ page import="collegefinder.model.User" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +16,6 @@
 <link rel="stylesheet" type="text/css" href="styles/scholarship_responsive.css">
 </head>
 <body>
-
-<div class="super_container">
 
 	<!-- Header -->
 
@@ -62,7 +59,7 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li><a href="home.html">Home</a></li>
+									<li><a href="home.jsp">Home</a></li>
 									<li><a href="about.html">About</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li><a href="scholarship.html">Scholarship</a></li>
@@ -110,88 +107,63 @@ for(User user: userList){
 %>
 <br>
    
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="footer_background" style="background-image:url(images/footer_background.png)"></div>
-		<div class="container">
-			<div class="row footer_row">
-				<div class="col">
-					<div class="footer_content">
-						<div class="row">
-
-							<div class="col-lg-4 footer_col">
-					
-								<!-- Footer About -->
-								<div class="footer_section footer_about">
-									<div class="footer_logo_container">
-										<a href="#">
-											<div class="footer_logo_text">College Finder</div>
-										</a>
-									</div>
-									<!-- <div class="footer_about_text">
-										<p>An innovative way to choose your educational institution</p>
-									</div> -->
-									<div class="footer_social">
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-4 footer_col">
-					
-								<!-- Footer Contact -->
-								<div class="footer_section footer_contact">
-								   <div class="footer_title">Contact Us</div>
-									<div class="footer_contact_info">
-										<ul>
-											<li>Email: collegefinder@gmail.com</li>
-											<li>Phone: 01-4475891/01-4487864 </li>
-											<li>Chabahil, Nepal</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-								<div class="col-lg-3 footer_col">
-					
-								
-								<!-- Footer links -->
-								<div class="footer_section footer_mobile">
-									<div class="footer_title">Mobile</div>
-									<div class="footer_mobile_content">
-										<div class="footer_image"><a href="#"><img src="images/mobile_1.png" alt=""></a></div>
-										<div class="footer_image"><a href="#"><img src="images/mobile_2.png" alt=""></a></div>
-									</div>
-								</div>
-							</div>	
-						</div>
-					</div>
+	
+	<!-- footer -->
+	
+	<div class="footer">
+	<div class="container">
+		<div class="footer_logo">
+			<div class="row">
+			 <div class="col-md-4">
+				<div class="footer_logo_container">
+					<a href="#">
+						<div class="footer_logo_text">College<span>Finder</span></div>
+					</a>
+				</div>	
+				<div class="logo_about">
+				COLLEGE FINDER is a web application which will provide the information like course, college information, available seats, etc. of many colleges at one place. With the help of this application any one can get information of many colleges in very short time and also save the expenses of visiting colleges.
 				</div>
-			</div>
+		     </div>
+		<div class="col-md-4">
+			<div class = "footer_contact">
+					<h4>Contact Info</h4>
+					Phone :01-4475891/01-4487864<br>
+					E-mail:CollegeFinder@gmail.com
+
+			</div> 
+		</div>
+		
+		<div class="col-md-4">
+			<div class="footer_quick">
+			   <h3>Quick Link</h3>
+				<li><a href="home.jsp">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="scholarship.html">Scholarship</a></li>
+			 </div>
+		  </div>
+	   </div>
+   </div>
+</div>
 
 			<div class="row copyright_row">
 				<div class="col">
 					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
 						<div class="cr_text">
-                         Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | College Finder
+                           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | CollegeFinder
                         </div>
-                        <div class="ml-lg-auto cr_links">
+						<div class="ml-lg-auto cr_links">
 							<ul class="cr_list">
-								<li>Copyright notification</li>
-								<li>Terms of Use</li>
-								<li>Privacy Policy</li>
+								<li><a href="#">Copyright notification</a></li>
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privacy Policy</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
+		<!-- footer -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="js/contact.js"></script>

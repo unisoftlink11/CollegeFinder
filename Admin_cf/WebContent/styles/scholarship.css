@@ -600,7 +600,7 @@ section
 }
 .footer_quick li a
 {
-	color: grey;
+	color: #a5a5a5;
 }
 .footer_quick li a:hover{
 	text-decoration: underline;

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="collegefinder.dao.DAO" %>
 <%@ page import= "java.util.*" %>
 <%@ page import="collegefinder.model.CollegeModel" %>
@@ -61,7 +60,7 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li><a href="home.html">Home</a></li>
+									<li><a href="home.jsp">Home</a></li>
 									<li><a href="about.html">About</a></li>
 									<li><a href="contact.html">Contact</a></li>	
 									<li><a href="scholarship.html" style="margin-left: -475px;">Scholarship</a></li>
@@ -72,33 +71,12 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Header Search Panel -->
-		<div class="header_search_container">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-							<form action="#" class="header_search_form">
-								<input type="search" class="search_input" placeholder="Search" required="required">
-								<button class="header_search_button d-flex flex-column align-items-center justify-content-center">
-									<i class="fa fa-search" aria-hidden="true"></i>
-								</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>			
-		</div>			
 	</header>
 
 	<!-- Home -->
 
 	<div class="home">		
 	</div>
-
-
-	
 	
 	<%
     DAO dao = new DAO();
@@ -177,7 +155,7 @@ for(scholarshipafteradmission saa1: scholar_Bim){
 					</a>
 				</div>	
 				<div class="logo_about">
-				“COLLEGE FINDER” is a web application which will provide the information like course, college information, available seats, etc. of many colleges at one place. With the help of this application any one can get information of many colleges in very short time and also save the expenses of visiting colleges.
+				COLLEGE FINDER is a web application which will provide the information like course, college information, available seats, etc. of many colleges at one place. With the help of this application any one can get information of many colleges in very short time and also save the expenses of visiting colleges.
 				</div>
 		     </div>
 		<div class="col-md-4">
@@ -192,10 +170,10 @@ for(scholarshipafteradmission saa1: scholar_Bim){
 		<div class="col-md-4">
 			<div class="footer_quick">
 			   <h3>Quick Link</h3>
-				<li><a href="home.html">Home</a></li>
-				<li><a href="">About</a></li>
-				<li><a href="">Contact</a></li>
-				<li><a href="">Scholarship</a></li>
+				<li><a href="home.jsp">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="scholarship.html">Scholarship</a></li>
 			 </div>
 		  </div>
 	   </div>

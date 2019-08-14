@@ -10,6 +10,7 @@
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<%@ page import="collegefinder.dao.DAO" %>
 </head>
 <body>
 
@@ -36,8 +37,15 @@
 										<i class="fa fa-envelope-o" aria-hidden="true"></i>
 										<div>CollegeFinder@gmail.com</div>
 									</li>
-								</ul>
-							</div>
+									</ul>
+									
+		                       <!--  topsearch -->
+		                      <form class="exa" action="UserHandler" method="GET">
+		                         <input type="hidden" name="command" value="searchdata">
+                                 <input type="text" placeholder="Looking for colleges?" required name="searchkey">
+                                 <input type="submit" value="Search">
+                             </form>
+                             <!--  topsearch -->
 						</div>
 					</div>
 				</div>
@@ -57,50 +65,17 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li class="active"><a href="home.html">Home</a></li>
+									<li class="active"><a href="home.jsp">Home</a></li>
 									<li><a href="about.html">About</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li><a href="scholarship.html" style="margin-left: -480px;">Scholarship</a></li>
 								</ul>
-								
-								       <div id="cover">
-										<form action="UserHandler" method="GET">
-										<input type="hidden" name="command" value="searchdata">
-										<div class="tb">
-                                          <div class="td"><input type="text" placeholder="Search" required  name="searchkey" ></div>
-                                          <div class="td" id="s-cover">
-                                           <button type="submit">
-                                           <div id="s-circle"></div>
-                                           <span></span>
-                                           </button>
-                                          </div>
-                                         </div>
-										</form>
-										</div>
 							</nav>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<!-- Header Search Panel -->
-		<div class="header_search_container">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-							<form action="#" class="header_search_form">
-								<input type="search" class="search_input" placeholder="Search" required="required">
-								<button class="header_search_button d-flex flex-column align-items-center justify-content-center">
-									<i class="fa fa-search" aria-hidden="true"></i>
-								</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>			
-		</div>			
+		</div>	
 	</header>
 	
 	<!-- Home -->
@@ -118,7 +93,11 @@
 			                    <div class="col text-center">
 									<div class="home_slider_title">Discover College Of Your Choice</div>
 									<div class="home_slider_subtitle">Let's uncover the best places to gain education that nearest and affordable to you.</div>
+									<h3 style="margin-top:10px;">Do you feel lost when trying to begin your college search?</h3>
 									<div class="home_slider_form_container">
+									
+									<!--list the colleges under the category of university and course--> 
+									
 										<form action="UserHandler" method="POST" id="home_search_form_1" class="home_search_form d-flex flex-lg-row    flex-column align-items-center justify-content-between">
                                               <input type="hidden" name="command" value="search">
                                               <div class="d-flex flex-row align-items-center justify-content-start">
@@ -136,26 +115,37 @@
 											<input type="submit" class="home_search_button" value="Search">
 										</form>
 										
-										<!--search for bestcollege-->
 										
 										
-										<form class="example" style="margin:auto;max-width:300px;" action="UserHandler" method="get">
-                                         <input type="hidden" name="command" value="search1">
-                                         <input type="text" placeholder="Search"  name="search2" color="black" onkeypress='validate(event)'>
-                                         <button type="submit"><i class="fa fa-search"></i></button>
+										<%
+										DAO dao = new DAO();
+										String result=null;
+												if(request.getAttribute("name")!=null){
+													result = request.getAttribute("name").toString();
+												}
+												else{
+													result ="Enter value for search";
+												}
+										
+										
+										%>
+										<!-- knapsack search for optimal solution -->
+										<form class="example" action="UserHandler" method="get">
+                                          <input type="hidden" name="command" value="search1">
+                                          <input type="text" placeholder="Search" name="search2" color="black" onkeypress='validate(event)'>
+                                          <button type="submit"><i class="fa fa-search"></i></button>
+                                         </form> 
+                                         <form class="exs">
+                                          <input type="text" value="<%=result %>">
                                          </form>
-						
-	 									
 										</div>
 									</div>
-								</div>
-				  			</div>
-			  			</div>
-		  			</div>
-		  			</div>
-		  			</div>
-		  		
-	
+								 </div>
+				  			 </div>
+			  			 </div>
+		  			 </div>
+		  		 </div>
+		  	</div>
 
 	<!-- Popular Courses -->
 
@@ -166,7 +156,6 @@
 				<div class="col">
 					<div class="section_title_container text-center">
 						<h2 class="section_title">Popular IT Programmes</h2>
-						
 					</div>
 				</div>
 			</div>
@@ -184,23 +173,21 @@
 								<a href="bsccsit.html" class="btn btn-primary">Learn More</a>
 							</div>
 						</div>
-						
 					</div>
 				</div>
 
 				<!-- Course -->
 				<div class="col-lg-4 course_col">
 					<div class="course">
-						<div class="course_image"><img src="images/course_8.jpg" alt=""></div>
+						<div class="course_image"><img src="images/banner_1.jpg" alt=""></div>
 						<div class="course_body">
 							<h3 class="course_title"><a href="course.html">BCA</a></h3>
-														<div class="course_text">
+							<div class="course_text">
 								<p style="color: black;">Tribhuvan University has launched Bachelor of Computer Application (BCA) program from the academic year 2074/75.In the first phase,this program has been launched in six(6) constituent campuses of Tribhuvan University and are allocated 35 seats each.Currently 125 Colleges are running BCA program with the affiliation from Tribhuvan University.The BCA program of TU is of 4 years.The program runs on semester-system. 
                                 Purbanchal University and Pokhara University are also running BCA program in Nepal.</p>
                                 <a href="bca.html" class="btn btn-primary">Learn More</a>
 							</div>
 						</div>
-						
 					</div>
 				</div>
 
@@ -218,6 +205,7 @@
 					</div>
 				</div>
 				</div>
+				
 				<div class="row courses_row">
 					<div class="col-lg-4 course_col">
 					<div class="course">
@@ -233,8 +221,7 @@
 					</div>
 				</div>
 
-
-					<div class="col-lg-4 course_col">
+				<div class="col-lg-4 course_col">
 					<div class="course">
 						<div class="course_image"><img src="images/course_4.jpg" alt=""></div>
 						<div class="course_body">
@@ -261,10 +248,10 @@
 						</div>
 					</div>
 	              </div>
-	              </div>
+	            </div>
 			</div>
         </div>
-	</div>
+	
 
 	<!-- footer -->
 	
@@ -279,15 +266,14 @@
 					</a>
 				</div>	
 				<div class="logo_about">
-				“COLLEGE FINDER” is a web application which will provide the information like course, college information, available seats, etc. of many colleges at one place. With the help of this application any one can get information of many colleges in very short time and also save the expenses of visiting colleges.
+				COLLEGE FINDER is a web application which will provide the information like course, college information, available seats, etc. of many colleges at one place. With the help of this application any one can get information of many colleges in very short time and also save the expenses of visiting colleges.
 				</div>
 		     </div>
-		<div class="col-md-4">
+		   <div class="col-md-4">
 			<div class = "footer_contact">
 					<h4>Contact Info</h4>
 					Phone :01-4475891/01-4487864<br>
 					E-mail:CollegeFinder@gmail.com
-
 			</div> 
 		</div>
 		
@@ -322,7 +308,7 @@
 			</div>
 		</div>
 		<!-- footer -->
-	
+		</div>	
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
 <script src="js/custom.js"></script>

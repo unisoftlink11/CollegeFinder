@@ -805,6 +805,7 @@ section
 .logo_about{
 	text-align: center;
 	padding-bottom: 20px;
+	color:#a5a5a5;
 }
 
 .copyright
@@ -866,11 +867,14 @@ section
 .footer_contact{
 	padding-left: 60px;
 	text-align: center;
+	color:#a5a5a5;
 
 }
 .footer_quick
 {
 	padding-left: 60px;
+	color: #a5a5a5;
+	
 }
 .footer_quick h3{
 	font-family: 'Roboto Slab', serif;
@@ -879,7 +883,7 @@ section
 }
 .footer_quick li a
 {
-	color: grey;
+	color: #a5a5a5;
 }
 .footer_quick li a:hover{
 	text-decoration: underline;
