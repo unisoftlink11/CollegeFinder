@@ -10,6 +10,7 @@
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 <%@ page import="collegefinder.dao.DAO" %>
 </head>
 <body>
@@ -94,14 +95,24 @@
 									<div class="home_slider_title">Discover College Of Your Choice</div>
 									<div class="home_slider_subtitle">Let's uncover the best places to gain education that nearest and affordable to you.</div>
 									<h3 style="margin-top:10px;">Do you feel lost when trying to begin your college search?</h3>
-									<div class="home_slider_form_container">
+									<div class="home_slider_form_container" style="margin-left: 13rem;">
 									
 									<!--list the colleges under the category of university and course--> 
 									
 										<form action="UserHandler" method="POST" id="home_search_form_1" class="home_search_form d-flex flex-lg-row    flex-column align-items-center justify-content-between">
                                               <input type="hidden" name="command" value="search">
                                               <div class="d-flex flex-row align-items-center justify-content-start">
-												<select class="dropdown_item_select home_search_input" name="course">
+   <!--                                            <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li> -->
+												<select class="dropdown_item_select home_search_input" data-toggle="dropdown" name="course">
 													<option>Category Courses</option>
 													<option>BSC.CSIT</option>
 													<option>BIM</option>
@@ -110,7 +121,7 @@
 												<select class="dropdown_item_select home_search_input" name="uv">
 													<option>University</option>
 													<option>TU</option>
-												</select>
+												</select> 
 											</div>
 											<input type="submit" class="home_search_button" value="Search">
 										</form>
@@ -312,5 +323,8 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
 <script src="js/custom.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 </body>
 </html>

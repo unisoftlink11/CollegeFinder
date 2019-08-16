@@ -27,6 +27,17 @@
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
+  
+     <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/recommend.css" >
+        <script src="js/recommend.js"></script>
+  
+  
 </head>
 
 <body id="page-top">
@@ -86,6 +97,12 @@
         </div>
           </div>
       </li>
+       <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="recommend.jsp">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Recommendation</span></a>
+      </li>
          <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
       
@@ -104,10 +121,12 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">CollegeName</th>
-       <th scope="col">CollegeAddress</th>
-      <th scope="col">University</th>
-      <th scope="col">Link</th>
-       <td colspan="2" align="center"><a href="insert_bsccsit.jsp" class="btn btn-primary">Insert</a></td>
+       <th scope="col">Price</th>
+      <th scope="col">Rank</th>
+       <td colspan="2" align="center">
+       <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Insert</button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Update</button>
+       </td>
     </tr>
   </thead>
 </tbody>
@@ -127,6 +146,54 @@ for(User user: userList){
 %>
 </table>
 </div>
+
+
+
+<div class="container">
+           <!--  <div class="container-box rotated">
+                <button type="button" class="btn btn-info btn-lg turned-button" data-toggle="modal" data-target="#myModal">Contact Us</button>
+            </div> -->
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                            <h4 class="modal-title">
+                                BSc.CSIT
+                            </h4>
+                             <button type="button" class="close"  style="margin-top:-12px;" data-dismiss="modal">&times;</button>
+                        </div>
+                         
+                        <div class="modal-body">
+                            <form role="form" method="post" id="reused_form" >
+                                <div class="form-group">
+                                    <label for="id"> id:</label>
+                                    <input type="text" class="form-control" id="id" name="id" required maxlength="50">
+                                </div>
+                                <div class="form-group">
+                                    <label for="College_Name"> College_Name:</label>
+                                    <input type="text" class="form-control" id="cn" name="College_Name" required maxlength="50">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Price"> Price:</label>
+                                    <input type="text" class="form-control" id="pz" name="Price" required maxlength="50">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Rank"> Rank:</label>
+                                   <input type="text" class="form-control" id="rk" name="rank" required maxlength="50">
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs">Inserted &rarr;</button>
+                            </form>
+                            <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
+                            <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
   <!-- Bootstrap core JavaScript-->
