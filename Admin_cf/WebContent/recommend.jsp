@@ -1,6 +1,6 @@
  <%@ page import="collegefinder.dao.DAO" %>
  <%@ page import= "java.util.*" %>
-<%@ page import="collegefinder.model.User" %>
+<%@ page import="collegefinder.model.KnapsackModel" %>
 
 
 <!DOCTYPE html>
@@ -110,7 +110,8 @@
     <!-- End of Sidebar -->
     <%
     DAO dao = new DAO();
-    List<User> userList = dao.getAllUser();
+    KnapsackModel model = new KnapsackModel();
+    List<KnapsackModel> knapuserList = dao.getKnapInfo();
 
 %>
     
@@ -125,21 +126,19 @@
       <th scope="col">Rank</th>
        <td colspan="2" align="center">
        <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Insert</button>
-        <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Update</button>
        </td>
     </tr>
   </thead>
 </tbody>
 <%
-for(User user: userList){
+for(KnapsackModel user: knapuserList){
 %>
 <td><%=user.getId() %>
 <td><%= user.getCollegeName() %></td>
-<td><%= user.getCollegeAddress() %></td>
-<td><%= user.getUniversity() %></td>
-<td><%= user.getLink() %></td>
-<td><a href="UserHandler?command=delete_bsccsit&id=<%=user.getId()%>" class="btn btn-danger">Delete</a></td>
-<td><a href="UserHandler?command=editform_bsccsit&id=<%=user.getId() %>" class="btn btn-dark">Update</a></td>
+<td><%= user.getWt() %></td>
+<td><%= user.getVal() %></td>
+<td><a href="UserHandler?command=deleteknapsack&id=<%=user.getId()%>" class="btn btn-danger">Delete</a></td>
+<td><a href="UserHandler?command=editform_knapsack&id=<%=user.getId() %>" class="btn btn-dark" data-toggle="modal" data-target="#myModal">Update</a></td>
 </tr>
 <%
 }
@@ -154,6 +153,8 @@ for(User user: userList){
                 <button type="button" class="btn btn-info btn-lg turned-button" data-toggle="modal" data-target="#myModal">Contact Us</button>
             </div> -->
             <!-- Modal -->
+            <form action="UserHandler" method="POST">
+             <input type="hidden" name="command" value="insertknapsack">
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
@@ -174,7 +175,7 @@ for(User user: userList){
                                 </div>
                                 <div class="form-group">
                                     <label for="College_Name"> College_Name:</label>
-                                    <input type="text" class="form-control" id="cn" name="College_Name" required maxlength="50">
+                                    <input type="text" class="form-control" id="cn" name="CollegeName" required maxlength="50">
                                 </div>
                                 <div class="form-group">
                                     <label for="Price"> Price:</label>
@@ -182,9 +183,9 @@ for(User user: userList){
                                 </div>
                                 <div class="form-group">
                                     <label for="Rank"> Rank:</label>
-                                   <input type="text" class="form-control" id="rk" name="rank" required maxlength="50">
+                                   <input type="text" class="form-control" id="rk" name="Rank" required maxlength="50">
                                 </div>
-                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs">Inserted &rarr;</button>
+                                <input type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" value="Insert">
                             </form>
                             <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
                             <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
@@ -192,7 +193,65 @@ for(User user: userList){
                     </div>
                 </div>
             </div>
+            </form>
         </div>
+<div class="container">     
+        <!-- Modal -->
+            <form method="POST" action="UserHandler" name = "editform_knapsack">
+			<input type="hidden" name="command" value="updateknapsack">
+		<%
+			String uid = request.getParameter("id");
+			if(!(uid == null)){
+			int id = Integer.parseInt(uid);
+			model= dao.getKnapModelById(id);
+		%>
+           <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                            <h4 class="modal-title">
+                                BSc.CSIT
+                            </h4>
+                             <button type="button" class="close"  style="margin-top:-12px;" data-dismiss="modal">&times;</button>
+                        </div>
+                         
+                        <div class="modal-body">
+                            <form role="form" method="post" id="reused_form" >
+                                <div class="form-group">
+                                    <label for="id"> id:</label>
+                                    <input type="text" class="form-control" id="id" name="id" required maxlength="50" value="<%=model.getId()%>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="College_Name"> College_Name:</label>
+                                    <input type="text" class="form-control" id="cn" name="CollegeName" required maxlength="50" value="<%=model.getCollegeName()%>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Price"> Price:</label>
+                                    <input type="text" class="form-control" id="pz" name="Price" required maxlength="50" value="<%=model.getWt() %>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Rank"> Rank:</label>
+                                   <input type="text" class="form-control" id="rk" name="Rank" required maxlength="50" value="<%=model.getVal()%>">
+                                </div>
+                                <input type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" value="Update">
+                            </form>
+                            <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
+                            <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+  <%
+    }
+    else out.println("Id not found");
+  %>
+</div>
+        
+        
+        
 
 
 

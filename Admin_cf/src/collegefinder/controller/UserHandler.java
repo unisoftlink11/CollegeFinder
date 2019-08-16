@@ -51,6 +51,7 @@ public class UserHandler extends HttpServlet {
 		String password= request.getParameter("password");
 		
 		User user = new User();
+		KnapsackModel model= new KnapsackModel();
 		//Insert
 		String redirect= "";
 		if(!(cname==null) && command.equalsIgnoreCase("save_bsccsit")) {
@@ -292,6 +293,43 @@ public class UserHandler extends HttpServlet {
         	    
         	 
          }
+		
+         else if(command.equalsIgnoreCase("insertknapsack")) {
+ 			model.setId(Integer.parseInt(request.getParameter("id")));
+ 			model.setCollegeName(request.getParameter("CollegeName"));
+ 			model.setWt(Integer.parseInt(request.getParameter("Price")));
+ 			model.setVal(Integer.parseInt(request.getParameter("Rank")));
+ 			dao.insertKnapInfo(model);
+ 		    redirect="/recommend.jsp";  
+ 		    request.setAttribute("models", dao.getKnapInfo());
+ 			System.out.println("record saved successfully");
+ 		}
+         else if(command.equalsIgnoreCase("deleteknapsack")){
+ 			String id= request.getParameter("id");	
+ 			int uid = Integer.parseInt(id);
+ 		    dao.deleteKnapInfo(uid);
+ 			redirect="/recommend.jsp";
+ 			request.setAttribute("models", dao.getKnapInfo());
+ 			System.out.println("record deleted Successfully");
+
+ 		}
+		
+         else if(command.equalsIgnoreCase("editform_knapsack")) {
+ 			redirect ="/recommend.jsp";
+ 			}
+ 		else if(command.equalsIgnoreCase("updateknapsack")) {
+ 			KnapsackModel knapuser = new KnapsackModel(); 
+ 			knapuser.setId(Integer.parseInt(request.getParameter("id")));
+ 			knapuser.setCollegeName(request.getParameter("CollegeName")); 
+ 			knapuser.setWt(Integer.parseInt(request.getParameter("Price"))); 
+ 			knapuser.setVal(Integer.parseInt(request.getParameter("Rank")));
+ 			dao.updateKnapInfo(knapuser);
+ 			redirect="/recommend.jsp";
+ 			request.setAttribute("models", dao.getKnapInfo());
+ 			System.out.println("record updated Successfully");
+ 		}
+		
+		
 
 	
 		

@@ -1,7 +1,6 @@
 package collegefinder.dao;
 
 import collegefinder.model.*;
-import sun.text.normalizer.UBiDiProps;
 import collegefinder.dbcon.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,11 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 
 public class DAO {
 
@@ -592,6 +586,99 @@ public class DAO {
 		}
 		return result;
 	}
+	
+	public List<KnapsackModel> getKnapInfo() {
+		List<KnapsackModel> user = new ArrayList<KnapsackModel>();
+		try {
+			String sql1 = "select * from knapsack";
+			PreparedStatement ps = conn.prepareStatement(sql1);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				KnapsackModel ub = new KnapsackModel();
+				ub.setId(rs.getInt("id"));
+				ub.setCollegeName(rs.getString("CollegeName"));
+				ub.setVal(rs.getInt("val"));
+				ub.setWt(rs.getInt("wt"));
+				user.add(ub);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return user;
+	}
+	
+	public boolean insertKnapInfo(KnapsackModel model) {
+
+		try {
+			String sql1 = "insert into knapsack(id,CollegeName,wt,val)"
+					+ "values(?,?,?,?)";
+
+			PreparedStatement ps = conn.prepareStatement(sql1);
+			ps.setInt(1, model.getId());
+			ps.setString(2, model.getCollegeName());
+			ps.setInt(3, model.getWt());
+			ps.setInt(4, model.getVal());
+			ps.executeUpdate();
+			status = true;
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return status;
+	}
+
+	public void updateKnapInfo(KnapsackModel model) {
+		try {
+			String sql1 = "update knapsack set CollegeName=?,wt=?,val=? where id=?";
+			PreparedStatement ps = conn.prepareStatement(sql1);
+
+			ps.setString(1, model.getCollegeName());
+			ps.setInt(2, model.getWt());
+			ps.setInt(3, model.getVal());
+			ps.setInt(4, model.getId());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void deleteKnapInfo(int id) {
+		try {
+			String sql = "delete from knapsack where id=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public KnapsackModel getKnapModelById(int uid) {
+		KnapsackModel ub = new KnapsackModel();
+		try {
+			String sql1 = "select * from knapsack where id =?";
+			PreparedStatement ps = conn.prepareStatement(sql1);
+			ps.setInt(1, uid);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				ub.setId(rs.getInt("id"));
+				ub.setCollegeName(rs.getString("CollegeName"));
+				ub.setWt(rs.getInt("wt"));
+				ub.setVal(rs.getInt("val"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return ub;
+	}
+	
 	
 	
 	//count number 
