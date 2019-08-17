@@ -29,6 +29,5 @@ public class KnapsackModel {
 	}
 	String collegeName;
 	
-	
 
 }

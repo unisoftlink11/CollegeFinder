@@ -1,6 +1,7 @@
 package collegefinder.dao;
 
 import collegefinder.model.*;
+import sun.text.normalizer.UBiDiProps;
 import collegefinder.dbcon.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class DAO {
 
@@ -492,55 +498,6 @@ public class DAO {
 		return sa;
 	}
 
-	// scholarship_before_admission_bca
-	/*
-	 * public List<CollegeModel> Scholar () { List<CollegeModel> cu = new
-	 * ArrayList<CollegeModel>(); try { String
-	 * sql="select id,HSEB,AdmissionFee,SemesterFee from scholarbeforeadmission ";
-	 * System.out.println(sql); PreparedStatement pst = conn.prepareStatement(sql);
-	 * ResultSet rs = pst.executeQuery();
-	 * 
-	 * 
-	 * while(rs.next()) { CollegeModel cm = new CollegeModel();
-	 * cm.setId(rs.getInt("id")); cm.setHseb(rs.getString("HSEB"));
-	 * cm.setAdmissionFee(rs.getString("AdmissionFee"));
-	 * cm.setSemesterFee(rs.getString("SemesterFee")); cu.add(cm); } }
-	 * 
-	 * catch(Exception e) { e.printStackTrace(); } return cu; }
-	 * 
-	 * 
-	 * //scholarship_after_admission_bca public List<scholarshipafteradmission>
-	 * ScholarAfter () { List<scholarshipafteradmission> sa = new
-	 * ArrayList<scholarshipafteradmission>(); try { String
-	 * sql="select id,First,Second,Third from scholarafteradmission ";
-	 * System.out.println(sql); PreparedStatement pst = conn.prepareStatement(sql);
-	 * ResultSet rs = pst.executeQuery();
-	 * 
-	 * 
-	 * while(rs.next()) { scholarshipafteradmission saa = new
-	 * scholarshipafteradmission(); saa.setId(rs.getInt("id"));
-	 * saa.setFirst(rs.getString("First")); saa.setSecond(rs.getString("Second"));
-	 * saa.setThird(rs.getString("Third"));; sa.add(saa); } }
-	 * 
-	 * catch(Exception e) { e.printStackTrace(); } return sa; }
-	 */
-
-	// scholarship_before_admission_bim
-	/*
-	 * public List<CollegeModel> Scholar () { List<CollegeModel> cu = new
-	 * ArrayList<CollegeModel>(); try { String
-	 * sql="select id,HSEB,AdmissionFee,SemesterFee from scholarbeforeadmission ";
-	 * System.out.println(sql); PreparedStatement pst = conn.prepareStatement(sql);
-	 * ResultSet rs = pst.executeQuery();
-	 * 
-	 * 
-	 * while(rs.next()) { CollegeModel cm = new CollegeModel();
-	 * cm.setId(rs.getInt("id")); cm.setHseb(rs.getString("HSEB"));
-	 * cm.setAdmissionFee(rs.getString("AdmissionFee"));
-	 * cm.setSemesterFee(rs.getString("SemesterFee")); cu.add(cm); } }
-	 * 
-	 * catch(Exception e) { e.printStackTrace(); } return cu; }
-	 */
 
 //knapsack algorithm
 
@@ -586,6 +543,7 @@ public class DAO {
 		}
 		return result;
 	}
+	
 	
 	public List<KnapsackModel> getKnapInfo() {
 		List<KnapsackModel> user = new ArrayList<KnapsackModel>();
@@ -678,6 +636,7 @@ public class DAO {
 		}
 		return ub;
 	}
+	
 	
 	
 	

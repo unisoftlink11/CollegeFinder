@@ -102,16 +102,6 @@
 										<form action="UserHandler" method="POST" id="home_search_form_1" class="home_search_form d-flex flex-lg-row    flex-column align-items-center justify-content-between">
                                               <input type="hidden" name="command" value="search">
                                               <div class="d-flex flex-row align-items-center justify-content-start">
-   <!--                                            <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Dropdown link
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Link 1</a>
-        <a class="dropdown-item" href="#">Link 2</a>
-        <a class="dropdown-item" href="#">Link 3</a>
-      </div>
-    </li> -->
 												<select class="dropdown_item_select home_search_input" data-toggle="dropdown" name="course">
 													<option>Category Courses</option>
 													<option>BSC.CSIT</option>
@@ -323,8 +313,5 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
 <script src="js/custom.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 </body>
 </html>
