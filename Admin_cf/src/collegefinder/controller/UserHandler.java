@@ -316,7 +316,7 @@ public class UserHandler extends HttpServlet {
   		}
  		
           else if(command.equalsIgnoreCase("editform_knapsack")) {
-  			redirect ="/recommend.jsp";
+  			redirect ="/update_knapsack.jsp";
   			}
   		  else if(command.equalsIgnoreCase("updateknapsack")) {
   			KnapsackModel knapuser = new KnapsackModel(); 

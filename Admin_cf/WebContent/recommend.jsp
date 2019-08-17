@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+ <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,14 +49,6 @@
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
-      </li>
-
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
@@ -116,9 +108,7 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
         
     
@@ -138,9 +128,6 @@
       <th scope="col">CollegeName</th>
        <th scope="col">Price</th>
       <th scope="col">Rank</th>
-       <td colspan="2" align="center">
-       <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Insert</button>
-       </td>
     </tr>
   </thead>
 </tbody>
@@ -152,7 +139,7 @@ for(KnapsackModel user: knapuserList){
 <td><%= user.getWt() %></td>
 <td><%= user.getVal() %></td>
 <td><a href="UserHandler?command=deleteknapsack&id=<%=user.getId()%>" class="btn btn-danger">Delete</a></td>
-<td><a href="UserHandler?command=editform_knapsack&id=<%=user.getId() %>" class="btn btn-dark" data-toggle="modal" data-target="#myModal">Update</a></td>
+<td><a href="UserHandler?command=editform_knapsack&id=<%=user.getId() %>" class="btn btn-dark">Update</a></td>
 </tr>
 <%
 }
@@ -160,36 +147,28 @@ for(KnapsackModel user: knapuserList){
 </table>
 </div>
 
+<button type="button" class="btn btn-success btn-sm" style="width: 100%;" data-toggle="modal" data-target="#modal1">INSERT</button>
 
+<div class="modal hide fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+       <form action="UserHandler" method="POST">
+           <input type="hidden" name="command" value="insertknapsack">
+      <div class="modal-dialog">
+      
+        <div class="modal-content">
+          <div class="modal-header">
+          INSERT FORM
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+          </div>
+          <div class="modal-body">
 
-<div class="container">
-           <!--  <div class="container-box rotated">
-                <button type="button" class="btn btn-info btn-lg turned-button" data-toggle="modal" data-target="#myModal">Contact Us</button>
-            </div> -->
-            <!-- Modal -->
-            <form action="UserHandler" method="POST">
-             <input type="hidden" name="command" value="insertknapsack">
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                            <h4 class="modal-title">
-                                BSc.CSIT
-                            </h4>
-                             <button type="button" class="close"  style="margin-top:-12px;" data-dismiss="modal">&times;</button>
-                        </div>
-                         
-                        <div class="modal-body">
-                            <form role="form" method="post" id="reused_form" >
                                 <div class="form-group">
                                     <label for="id"> id:</label>
                                     <input type="text" class="form-control" id="id" name="id" required maxlength="50">
                                 </div>
                                 <div class="form-group">
                                     <label for="College_Name"> College_Name:</label>
-                                    <input type="text" class="form-control" id="cn" name="CollegeName" required maxlength="50">
+                                    <input type="text" class="form-control" id="cn" name="CollegeName" required maxlength="50" >
                                 </div>
                                 <div class="form-group">
                                     <label for="Price"> Price:</label>
@@ -199,70 +178,13 @@ for(KnapsackModel user: knapuserList){
                                     <label for="Rank"> Rank:</label>
                                    <input type="text" class="form-control" id="rk" name="Rank" required maxlength="50">
                                 </div>
-                                <input type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" value="Insert">
-                            </form>
-                            <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
-                            <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </form>
-        </div>
-<div class="container">     
-        <!-- Modal -->
-            <form method="POST" action="UserHandler" name = "editform_knapsack">
-			<input type="hidden" name="command" value="updateknapsack">
-		<%
-			String uid = request.getParameter("id");
-			if(!(uid == null)){
-			int id = Integer.parseInt(uid);
-			model= dao.getKnapModelById(id);
-		%>
-           <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                            <h4 class="modal-title">
-                                BSc.CSIT
-                            </h4>
-                             <button type="button" class="close"  style="margin-top:-12px;" data-dismiss="modal">&times;</button>
-                        </div>
-                         
-                        <div class="modal-body">
-                            <form role="form" method="post" id="reused_form" >
-                                <div class="form-group">
-                                    <label for="id"> id:</label>
-                                    <input type="text" class="form-control" id="id" name="id" required maxlength="50" value="<%=model.getId()%>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="College_Name"> College_Name:</label>
-                                    <input type="text" class="form-control" id="cn" name="CollegeName" required maxlength="50" value="<%=model.getCollegeName()%>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Price"> Price:</label>
-                                    <input type="text" class="form-control" id="pz" name="Price" required maxlength="50" value="<%=model.getWt() %>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Rank"> Rank:</label>
-                                   <input type="text" class="form-control" id="rk" name="Rank" required maxlength="50" value="<%=model.getVal()%>">
-                                </div>
-                                <input type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" value="Update">
-                            </form>
-                            <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
-                            <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </form>
-  <%
-    }
-    else out.println("Id not found");
-  %>
-</div>
+                                <input type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" value="Insert">      
+                   </div>
+               </div>
+           </div>
+         </form>
+    </div>
+
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

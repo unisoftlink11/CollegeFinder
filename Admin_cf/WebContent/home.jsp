@@ -94,7 +94,7 @@
 			                    <div class="col text-center">
 									<div class="home_slider_title">Discover College Of Your Choice</div>
 									<div class="home_slider_subtitle">Let's uncover the best places to gain education that nearest and affordable to you.</div>
-									<h3 style="margin-top:10px;">Do you feel lost when trying to begin your college search?</h3>
+									<h3 style="margin-top:10px;">Get the best college with the price you can afford!</h3>
 									<div class="home_slider_form_container" style="margin-left: 13rem;">
 									
 									<!--list the colleges under the category of university and course--> 
@@ -125,7 +125,7 @@
 													result = request.getAttribute("name").toString();
 												}
 												else{
-													result ="Enter value for search";
+													result ="";
 												}
 										
 										
@@ -133,7 +133,7 @@
 										<!-- knapsack search for optimal solution -->
 										<form class="example" action="UserHandler" method="get">
                                           <input type="hidden" name="command" value="search1">
-                                          <input type="text" placeholder="Search" name="search2" color="black" onkeypress='validate(event)'>
+                                          <input type="text" placeholder="BSc.CSIT" name="search2" color="black" onkeypress='validate(event)'>
                                           <button type="submit"><i class="fa fa-search"></i></button>
                                          </form> 
                                          <form class="exs">
